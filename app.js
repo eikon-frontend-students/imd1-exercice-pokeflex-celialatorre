@@ -218,7 +218,15 @@
    * Crée une carte Pokémon et l'ajoute au conteneur
    * @param {Object} pokemon - Les données du Pokémon
    */
+  // ...existing code...
+  /**
+   * Crée une carte Pokémon et l'ajoute au conteneur
+   * @param {Object} pokemon - Les données du Pokémon
+   */
   function createPokemonCard(pokemon) {
+    // Remplace les cartes existantes par la nouvelle carte (au lieu d'ajouter)
+    cardsContainer.innerHTML = "";
+
     // Clone le template
     const cardClone = cardTemplate.content.cloneNode(true);
     const card = cardClone.querySelector(".card");
@@ -303,12 +311,7 @@
     // Ajoute la carte au conteneur
     cardsContainer.appendChild(card);
   }
-
-  /**
-   * Extrait les noms des types depuis les données du Pokémon
-   * @param {Object} pokemon - Les données du Pokémon
-   * @returns {string[]} Un tableau des noms de types
-   */
+  //
   function extractTypes(pokemon) {
     // Essaie apiTypes d'abord (structure: [{name: "Feu", image: "..."}])
     if (pokemon.apiTypes && Array.isArray(pokemon.apiTypes)) {
